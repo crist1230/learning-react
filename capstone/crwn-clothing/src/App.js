@@ -1,12 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import Directory from './components/directory/directory.component';
 
-function App() {
+const App = () => {
+
   return (
-    <div>
-      Hello World!
-    </div>
+    <Directory/>
   );
-}
+};
 
 export default App;
