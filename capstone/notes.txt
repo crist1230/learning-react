@@ -1,0 +1,17 @@
+80. when you see package-lock.json it's basically storing all the versions of
+    things you wouldn't want to be messed with when you share your git repo
+
+79. The parameter you put into the component anonymous function will always be
+    "props" which is any attribute you include when you call the component
+
+        ex:
+        
+            const Directory = ( props ) => {
+                return (
+                    <div className='directory-container'>
+                    {props.categories.map((category) => (
+                        <CategoryItem key={category.id} category={category} /*these are props*/ />  
+                    ))} 
+                    </div> 
+                );
+            };
