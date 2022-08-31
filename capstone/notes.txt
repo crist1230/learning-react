@@ -15,3 +15,12 @@
                     </div> 
                 );
             };
+
+83. - routes is a folder that will hold all of our top level components
+    - the parent element will still render with the child until we tell it otherwise
+    - outlet is the place where the child elements should render
+
+86. Fragment can act like a parent element without actually having to render and element or
+    something on the page. Remember, you need one parent element when you're returning HTML
+    from a component function because if you have multiple parent elements that's like trying
+    to return more than one value from a return call.
