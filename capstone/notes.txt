@@ -1,0 +1,14 @@
+what is "export default"
+    basically, if we have a file that has got one thing to export, then we can use a shorthand
+    when we are importing the file (look at the link for a side by side comparison of when
+    export defaut vs export is used)
+https://stackoverflow.com/questions/21117160/what-is-export-default-in-javascript //look at answer 2
+
+/////////////////////////////////////////////////////////////////////////////////////////
+ROUTES
+    you can have multiple routes that return the same element, but not that the path may be different
+    if you have the routes nested in other routes
+
+/////////////////////////////////////////////////////////////////////////////////////////
+FIREBASE
+    -basically a database
