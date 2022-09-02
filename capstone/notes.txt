@@ -24,3 +24,26 @@
     something on the page. Remember, you need one parent element when you're returning HTML
     from a component function because if you have multiple parent elements that's like trying
     to return more than one value from a return call.
+
+105. Contexts
+        -these are a special feature that allows you to send info directly to the nodes that   
+         need it
+        
+        ex:
+            export const UserProvider = ({ children }) => {
+                return <UserContext.Provider>{children}</UserContext.Provider>
+            };
+
+            <UserProvider>
+                <app /> //this would be the children that get passed into the UserProvider function ^^^
+            </UserProvider>
+
+            only the things nested inside the provider will be able to access the context
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+Hooks
+
+    hooks enable the use of state in functional components. Before you need to use a class
+    organizational system to access them, but hooks allow you to "hook into" react state.
+
+    state is a kind of internal memory that stores data relating to a component

@@ -29,7 +29,8 @@ Pure Function:
 
     in react we'll use impure and pure functions
 
-Using react with functional components means that every time there is a rerender, the whole function gets run from top to bottom
+Using react with functional components means that every time there is a rerender,
+the whole function gets run from top to bottom
 
 58. useState('');
 
@@ -39,10 +40,10 @@ Using react with functional components means that every time there is a rerender
         the second element is a function that allows you to change/set the state to another value
 
     you're basically saying:
-        use the state that is initialized to this value and get the set value off of it and the function that lets me manage
-        this specific state
+        use the state that is initialized to this value and get the set value off of it and the function
+        that lets me manage this specific state
 
-        const { age, setAge } = useState(23);
+        const [age, setAge] = useState(23);
 
         it's saying use the state of age and change it accordingly
         change the state of the age variables
@@ -55,8 +56,8 @@ Using react with functional components means that every time there is a rerender
 
 60. useEffect(() => {}, []);
 
-        basically says, only run the function in the first parameter every time something in the array in the second parameter
-        changes
+        basically says, only run the function in the first parameter every time something
+        in the array in the second parameter changes
 
         basically creates a side-effect
 
