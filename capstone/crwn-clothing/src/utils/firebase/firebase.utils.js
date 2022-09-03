@@ -21,8 +21,8 @@ provider.setCustomParameters({ // tells the provider how to behave
     prompt: 'select_account'
 });
 
-// get authentication (runs the code that will authenticate a user)
+// get the rules for authenticating with firebase
 export const auth = getAuth();
 
-// I want to sign in with this authorized token using the method provided
+// I want to sign in, here are the rules for authentication, and here's your provider
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
