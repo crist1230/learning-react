@@ -2,7 +2,10 @@ what is "export default"
     basically, if we have a file that has got one thing to export, then we can use a shorthand
     when we are importing the file (look at the link for a side by side comparison of when
     export defaut vs export is used)
-https://stackoverflow.com/questions/21117160/what-is-export-default-in-javascript //look at answer 2
+    https://stackoverflow.com/questions/21117160/what-is-export-default-in-javascript //look at answer 2
+
+when do you use async await?
+    whenever you're making a call to a db
 
 /////////////////////////////////////////////////////////////////////////////////////////
 ROUTES
@@ -28,6 +31,11 @@ ROUTES
         );
     };
 
+/////////////////////////////////////////////////////////////////////////////////////////
+AUTHENTICATION FLOW
+    Here's links I found useful for explaining it:
+        Lecture 89
+        https://www.youtube.com/watch?v=BNEoKexlmA4&t=105s
 
 /////////////////////////////////////////////////////////////////////////////////////////
 FIREBASE
