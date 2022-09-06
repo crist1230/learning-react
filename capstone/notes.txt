@@ -7,6 +7,8 @@ what is "export default"
 when do you use async await?
     whenever you're making a call to a db
 
+components are always capitalized (gets this from class syntax)
+
 /////////////////////////////////////////////////////////////////////////////////////////
 ROUTES
     you can have multiple routes that return the same element, but not that the path may be different

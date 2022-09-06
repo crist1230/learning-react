@@ -40,7 +40,7 @@ export const db = getFirestore();
 /* google sign-in will return some user authentication object and that's what gets passed here
    it's a function that takes that data we get from the authentication service, and will 
    store that in our firebase db */
-export const createUserDocumentFromAuth = async (userAuth) => {
+export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
     if (!userAuth) return;
 
     /*  get reference to a document
@@ -68,7 +68,8 @@ export const createUserDocumentFromAuth = async (userAuth) => {
             await setDoc(userDocRef, {
                 displayName,
                 email,
-                createdAt
+                createdAt,
+                ...additionalInformation
             });
         } catch (error) {
             console.log('error creating the user', error.message);
