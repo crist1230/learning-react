@@ -55,9 +55,9 @@ Using react with functional components means that every time there is a rerender
 
 60. useEffect(() => {}, []);
 
-        basically says, only run the function in the first parameter every time something in the array in the second parameter
-        changes
+    basically says, only run the function in the first parameter every time something
+    in the array in the second parameter changes
 
-        basically creates a side-effect
+    basically creates a side-effect (changes something outside the function)
 
-        array is known as dependency array
+    array is known as dependency array
