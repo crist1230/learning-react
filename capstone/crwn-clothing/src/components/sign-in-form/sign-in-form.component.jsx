@@ -1,6 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
-import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
+import {
+    signInWithGooglePopup,
+    createUserDocumentFromAuth,
+    signInAuthUserWithEmailAndPassword
+} from '../../utils/firebase/firebase.utils';
+
+// returns whatever value was passed in for "value"
+import { UserContext } from '../../contexts/user.context';
+
 
 import './sign-in-form.styles.scss';
 
@@ -17,6 +25,8 @@ const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
 
+    const { setCurrentUser } = useContext(UserContext);
+
     // has to be async whenever you're making a call to a db
     const signInWithGoogle = async () => {
         // get back user credentials and access token and unique id tied to the account 
@@ -32,8 +42,8 @@ const SignInForm = () => {
         event.preventDefault();
 
         try {
-            // creates user
-            const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+            const { user } = await signInAuthUserWithEmailAndPassword(email, password); // want to take the user and store it in the context
+            setCurrentUser(user);
             resetFormFields();
         } catch (error) {
             switch (error.code) {
