@@ -44,10 +44,13 @@ FIREBASE
     -basically a database
 
 /////////////////////////////////////////////////////////////////////////////////////////
-PROP DRILLING
+PROP DRILLING VS CONTEXTS
     - if you have a state declared in your app component and want to pass down that state
       so it's usable in a child component, you would have to pass the state down as a prop
       to every child component inbetween the app and the component you want to use the 
       state in
 
-      Example: https://codesandbox.io/s/prop-drilling-example-01rbb8?file=/src/App.js
+      Example with PD: https://codesandbox.io/s/prop-drilling-example-01rbb8?file=/src/App.js
+      Example with Contexts: https://codesandbox.io/s/contexts-example-unhbek?file=/src/App.js
+
+      good explanation: https://www.youtube.com/watch?v=sP7ANcTpJr8
