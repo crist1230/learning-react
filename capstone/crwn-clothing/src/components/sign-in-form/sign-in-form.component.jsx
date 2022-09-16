@@ -1,6 +1,17 @@
 import { useState, useContext } from "react";
+<<<<<<< HEAD
+=======
 
-import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
+import {
+    signInWithGooglePopup,
+    createUserDocumentFromAuth,
+    signInAuthUserWithEmailAndPassword
+} from '../../utils/firebase/firebase.utils';
+
+// returns whatever value was passed in for "value"
+import { UserContext } from '../../contexts/user.context';
+>>>>>>> 09bd47d6f62e713b1e5abdc4360d4f5f09f5c78b
+
 
 import './sign-in-form.styles.scss';
 
@@ -35,8 +46,12 @@ const SignInForm = () => {
         event.preventDefault();
 
         try {
+<<<<<<< HEAD
             // creates user
             const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+=======
+            const { user } = await signInAuthUserWithEmailAndPassword(email, password); // want to take the user and store it in the context
+>>>>>>> 09bd47d6f62e713b1e5abdc4360d4f5f09f5c78b
             setCurrentUser(user);
             resetFormFields();
         } catch (error) {
