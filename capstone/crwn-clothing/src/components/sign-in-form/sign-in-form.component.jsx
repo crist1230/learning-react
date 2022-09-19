@@ -6,14 +6,13 @@ import {
     signInAuthUserWithEmailAndPassword
 } from '../../utils/firebase/firebase.utils';
 
-// returns whatever value was passed in for "value"
-import { UserContext } from '../../contexts/user.context';
-
-
 import './sign-in-form.styles.scss';
 
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
+
+// returns whatever value was passed in for "value"
+import { UserContext } from '../../contexts/user.context';
 
 const defaultFormFields = {
     email: '',

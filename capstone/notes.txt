@@ -9,6 +9,10 @@ when do you use async await?
 
 components are always capitalized (gets this from class syntax)
 
+when do you use .jsx vs .js
+    when you write out a component, use .jsx cuz it's explicitly related to react, for
+    everything else, use .js
+
 /////////////////////////////////////////////////////////////////////////////////////////
 ROUTES
     you can have multiple routes that return the same element, but not that the path may be different
@@ -41,6 +45,15 @@ AUTHENTICATION FLOW
 
 /////////////////////////////////////////////////////////////////////////////////////////
 FIREBASE
+    -basically a database like mongodb
+
+/////////////////////////////////////////////////////////////////////////////////////////
+CONTEXTS
+    - allow you to store certain things separately outside of a component and just call the
+      variable wherever you need it instead of it going through props
+    - Lecture 104
+
+
     -basically a database
 
 /////////////////////////////////////////////////////////////////////////////////////////
