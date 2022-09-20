@@ -56,13 +56,8 @@ the whole function gets run from top to bottom
 
 60. useEffect(() => {}, []);
 
-<<<<<<< HEAD
-        basically says, only run the function in the first parameter every time something
-        in the array in the second parameter changes
-=======
     basically says, only run the function in the first parameter every time something
     in the array in the second parameter changes
->>>>>>> relearning-firebase
 
     basically creates a side-effect (changes something outside the function)
 

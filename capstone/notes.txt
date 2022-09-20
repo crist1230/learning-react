@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 80. when you see package-lock.json it's basically storing all the versions of
     things you wouldn't want to be messed with when you share your git repo
 
@@ -48,7 +47,7 @@ Hooks
     organizational system to access them, but hooks allow you to "hook into" react state.
 
     state is a kind of internal memory that stores data relating to a component
-=======
+
 what is "export default"?
     basically, if we have a file that has got one thing to export, then we can use a shorthand
     when we are importing the file (look at the link for a side by side comparison of when
@@ -127,4 +126,3 @@ PROP DRILLING VS CONTEXTS
       Example with Contexts: https://codesandbox.io/s/contexts-example-unhbek?file=/src/App.js
 
       good explanation: https://www.youtube.com/watch?v=sP7ANcTpJr8
->>>>>>> relearning-firebase
