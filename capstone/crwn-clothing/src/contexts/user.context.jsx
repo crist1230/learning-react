@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import { createContext, useState } from 'react';
-
-// actual value you want to access
-export const UserContext = createContext({
-    currentUser: null,
-    setCurrentUser: () => null,
-});
-
-export const UserProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState(null);
-    const value = {currentUser, setCurrentUser}
-
-    return <UserContext.Provider value={value}>{children}</UserContext.Provider>; 
-    /* Whatever value was passed in for the value is what importing UserContext will provide */
-};
-=======
 import { createContext, useState, useEffect } from "react";
 
 import { onAuthStateChangedListener, createUserDocumentFromAuth } from '../utils/firebase/firebase.utils';
@@ -54,4 +37,3 @@ export const UserProvider = ({ children }) => {
     <App />
   </UserContext.Provider>
 */
->>>>>>> relearning-firebase
