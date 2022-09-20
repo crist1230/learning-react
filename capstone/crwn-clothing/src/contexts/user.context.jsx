@@ -17,6 +17,8 @@ export const UserProvider = ({ children }) => {
   // useEffect runs once, when the component mounts
   useEffect(() => {
     // when this component unmounts, you want to tell the listener to stop listening (see return)
+    // unsubscribe is a function that will tell the listener to stop listening
+    // look at comments on lecture 109 to understand where user comes from
     const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
         createUserDocumentFromAuth(user);
