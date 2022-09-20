@@ -1,4 +1,4 @@
-what is "export default"
+what is "export default"?
     basically, if we have a file that has got one thing to export, then we can use a shorthand
     when we are importing the file (look at the link for a side by side comparison of when
     export defaut vs export is used)
@@ -9,9 +9,13 @@ when do you use async await?
 
 components are always capitalized (gets this from class syntax)
 
-when do you use .jsx vs .js
+when do you use .jsx vs .js?
     when you write out a component, use .jsx cuz it's explicitly related to react, for
     everything else, use .js
+
+what is component mounting and unmounting?
+    - when a component appears on the dom, it's mounted
+      when a component disappears from the dom, it's unmounted
 
 /////////////////////////////////////////////////////////////////////////////////////////
 ROUTES
@@ -53,8 +57,13 @@ CONTEXTS
       variable wherever you need it instead of it going through props
     - Lecture 104
 
+    - basically a database
 
-    -basically a database
+    - so the thing with the provider, you could be providing multiple contexts
+      to the app element (which means ur passing down the state and setterstate),
+      but a certain js file doesn't know which one you want to use, so, in that file,
+      you have to call useContext (so it knows it's looking for something provided
+      to the file) and then in () you put the context you want to access
 
 /////////////////////////////////////////////////////////////////////////////////////////
 PROP DRILLING VS CONTEXTS

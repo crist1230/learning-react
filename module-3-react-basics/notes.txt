@@ -61,3 +61,5 @@ Using react with functional components means that every time there is a rerender
     basically creates a side-effect (changes something outside the function)
 
     array is known as dependency array
+
+    if you call return, this will run when the component useEffect is in unmounts
