@@ -4,8 +4,8 @@ import { onAuthStateChangedListener, createUserDocumentFromAuth } from '../utils
 
 // actual value you want to access
 export const UserContext = createContext({ // pass the default value
-  setCurrentUser: () => null,
   currentUser: null,
+  setCurrentUser: () => null,
 });
 
 export const UserProvider = ({ children }) => {

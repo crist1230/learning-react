@@ -4,17 +4,17 @@
 79. The parameter you put into the component anonymous function will always be
     "props" which is any attribute you include when you call the component
 
-        ex:
-        
-            const Directory = ( props ) => {
-                return (
-                    <div className='directory-container'>
-                    {props.categories.map((category) => (
-                        <CategoryItem key={category.id} category={category} /*these are props*/ />  
-                    ))} 
-                    </div> 
-                );
-            };
+      ex:
+      
+        const Directory = ( props ) => {
+          return (
+            <div className='directory-container'>
+            {props.categories.map((category) => (
+              <CategoryItem key={category.id} category={category} /*these are props*/ />  
+            ))} 
+            </div> 
+          );
+        };
 
 83. - routes is a folder that will hold all of our top level components
     - the parent element will still render with the child until we tell it otherwise
@@ -26,103 +26,103 @@
     to return more than one value from a return call.
 
 105. Contexts
-        -these are a special feature that allows you to send info directly to the nodes that   
-         need it
-        
-        ex:
-            export const UserProvider = ({ children }) => {
-                return <UserContext.Provider>{children}</UserContext.Provider>
-            };
+      -these are a special feature that allows you to send info directly to the nodes that   
+        need it
+      
+      ex:
+        export const UserProvider = ({ children }) => {
+          return <UserContext.Provider>{children}</UserContext.Provider>
+        };
 
-            <UserProvider>
-                <app /> //this would be the children that get passed into the UserProvider function ^^^
-            </UserProvider>
+        <UserProvider>
+          <app /> //this would be the children that get passed into the UserProvider function ^^^
+        </UserProvider>
 
-            only the things nested inside the provider will be able to access the context
+        only the things nested inside the provider will be able to access the context
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 Hooks
 
-    hooks enable the use of state in functional components. Before you need to use a class
-    organizational system to access them, but hooks allow you to "hook into" react state.
+  hooks enable the use of state in functional components. Before you need to use a class
+  organizational system to access them, but hooks allow you to "hook into" react state.
 
-    state is a kind of internal memory that stores data relating to a component
+  state is a kind of internal memory that stores data relating to a component
 
 what is "export default"?
-    basically, if we have a file that has got one thing to export, then we can use a shorthand
-    when we are importing the file (look at the link for a side by side comparison of when
-    export defaut vs export is used)
-    https://stackoverflow.com/questions/21117160/what-is-export-default-in-javascript //look at answer 2
+  basically, if we have a file that has got one thing to export, then we can use a shorthand
+  when we are importing the file (look at the link for a side by side comparison of when
+  export defaut vs export is used)
+  https://stackoverflow.com/questions/21117160/what-is-export-default-in-javascript //look at answer 2
 
 when do you use async await?
-    whenever you're making a call to a db
+  whenever you're making a call to a db
 
 components are always capitalized (gets this from class syntax)
 
 when do you use .jsx vs .js?
-    when you write out a component, use .jsx cuz it's explicitly related to react, for
-    everything else, use .js
+  when you write out a component, use .jsx cuz it's explicitly related to react, for
+  everything else, use .js
 
 what is component mounting and unmounting?
-    - when a component appears on the dom, it's mounted
-      when a component disappears from the dom, it's unmounted
+  - when a component appears on the dom, it's mounted
+    when a component disappears from the dom, it's unmounted
 
 /////////////////////////////////////////////////////////////////////////////////////////
 ROUTES
-    you can have multiple routes that return the same element, but not that the path may be different
-    if you have the routes nested in other routes
+  you can have multiple routes that return the same element, but not that the path may be different
+  if you have the routes nested in other routes
 
-    Here's a sandbox to play with:
-    https://codesandbox.io/s/optimistic-northcutt-vjckot?file=/src/App.js
+  Here's a sandbox to play with:
+  https://codesandbox.io/s/optimistic-northcutt-vjckot?file=/src/App.js
 
-    const App = () => {
-        return (
-            <Routes>
-            <Route path='/' element={<Navigation />}>
-                <Route index element={<Home />} />
-                <Route path='shop' element={<Shop />} /> {/* this is just saying that theres a
-                path to /shop and when there's an attempt to access it, show the Shop element. And
-                cuz this is a child of a route, the parent route (navigation) will show up no
-                matter if you change the path to anything else. This does not make a link to shop 
-                magically appear, you have to write that code in the place where you want it to 
-                appear. In this case, you would write the code in the navigation element. */}
-            </Route>
-            </Routes>
-        );
-    };
+  const App = () => {
+    return (
+      <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path='shop' element={<Shop />} /> {/* this is just saying that theres a
+        path to /shop and when there's an attempt to access it, show the Shop element. And
+        cuz this is a child of a route, the parent route (navigation) will show up no
+        matter if you change the path to anything else. This does not make a link to shop 
+        magically appear, you have to write that code in the place where you want it to 
+        appear. In this case, you would write the code in the navigation element. */}
+      </Route>
+      </Routes>
+    );
+  };
 
 /////////////////////////////////////////////////////////////////////////////////////////
 AUTHENTICATION FLOW
-    Here's links I found useful for explaining it:
-        Lecture 89
-        https://www.youtube.com/watch?v=BNEoKexlmA4&t=105s
+  Here's links I found useful for explaining it:
+    Lecture 89
+    https://www.youtube.com/watch?v=BNEoKexlmA4&t=105s
 
 /////////////////////////////////////////////////////////////////////////////////////////
 FIREBASE
-    -basically a database like mongodb
+  -basically a database like mongodb
 
 /////////////////////////////////////////////////////////////////////////////////////////
 CONTEXTS
-    - allow you to store certain things separately outside of a component and just call the
-      variable wherever you need it instead of it going through props
-    - Lecture 104
+  - allow you to store certain things separately outside of a component and just call the
+    variable wherever you need it instead of it going through props
+  - Lecture 104
 
-    - basically a database
+  - basically a database
 
-    - so the thing with the provider, you could be providing multiple contexts
-      to the app element (which means ur passing down the state and setterstate),
-      but a certain js file doesn't know which one you want to use, so, in that file,
-      you have to call useContext (so it knows it's looking for something provided
-      to the file) and then in () you put the context you want to access
+  - so the thing with the provider, you could be providing multiple contexts
+    to the app element (which means ur passing down the state and setterstate),
+    but a certain js file doesn't know which one you want to use, so, in that file,
+    you have to call useContext (so it knows it's looking for something provided
+    to the file) and then in () you put the context you want to access
 
 /////////////////////////////////////////////////////////////////////////////////////////
 PROP DRILLING VS CONTEXTS
-    - if you have a state declared in your app component and want to pass down that state
-      so it's usable in a child component, you would have to pass the state down as a prop
-      to every child component in between the app and the component you want to use the 
-      state in
+  - if you have a state declared in your app component and want to pass down that state
+    so it's usable in a child component, you would have to pass the state down as a prop
+    to every child component in between the app and the component you want to use the 
+    state in
 
-      Example with PD: https://codesandbox.io/s/prop-drilling-example-01rbb8?file=/src/App.js
-      Example with Contexts: https://codesandbox.io/s/contexts-example-unhbek?file=/src/App.js
+    Example with PD: https://codesandbox.io/s/prop-drilling-example-01rbb8?file=/src/App.js
+    Example with Contexts: https://codesandbox.io/s/contexts-example-unhbek?file=/src/App.js
 
-      good explanation: https://www.youtube.com/watch?v=sP7ANcTpJr8
+    good explanation: https://www.youtube.com/watch?v=sP7ANcTpJr8

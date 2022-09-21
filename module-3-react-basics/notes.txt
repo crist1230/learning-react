@@ -1,66 +1,67 @@
 resources: https://create-react-app.dev/docs/getting-started/
 
 20. Create React App
-    - npx vs. npm
-        npx will install the package and then delete it once it served its function
-            - npx *package-name*
-            - great for create-react-app because when you create the react environment is the only 
-              time you'll use that specific package
-        npm will just install the package and you will have to manually delete it if you want to
-    - installing a new react workspace:
-        npx create-react-app *app-name*
-    - to start the app do "npm start" while in the correct directory
+  - npx vs. npm
+    npx will install the package and then delete it once it served its function
+      - npx *package-name*
+      - great for create-react-app because when you create the react environment is the only 
+        time you'll use that specific package
+    npm will just install the package and you will have to manually delete it if you want to
+  - installing a new react workspace:
+    npx create-react-app *app-name*
+  - to start the app do "npm start" while in the correct directory
 
 22. Build
-    - npm run build
-        - will take all the react app stuff you made and condense it all to be as small and efficient as possible
+  - npm run build
+    - will take all the react app stuff you made and condense it all to be as small and efficient as possible
 
 34. Keys
-    - want to put the key attribute in the highest element level
+  - want to put the key attribute in the highest element level when using .map
+  - want to use this cuz it will allow react to more easily identify what value to update and rerender
 
 38. Re-rendering
-    - the app will re-render when the state or props have been updated
+  - the app will re-render when the state or props have been updated
 
 SWITCH FROM CLASS COMPONENTS TO FUNCTIONAL COMPONENTS ///////////////////////////////////////////////////////////////////////
 
 Pure Function:
-    1. Doesn't rely on outward variables
-    2. Doesn't have side-effects (doesn't change outside variables)
+  1. Doesn't rely on outward variables
+  2. Doesn't have side-effects (doesn't change outside variables)
 
-    in react we'll use impure and pure functions
+  in react we'll use impure and pure functions
 
 Using react with functional components means that every time there is a rerender,
 the whole function gets run from top to bottom
 
 58. useState('');
 
-    when you call the function useState(''); it will return an array with 2 elements
-        the first element is the value of the specific state 
-            if you just initialized the function, then this will be whatever's in the ()
-        the second element is a function that allows you to change/set the state to another value
+  when you call the function useState(''); it will return an array with 2 elements
+    the first element is the value of the specific state 
+      if you just initialized the function, then this will be whatever's in the ()
+    the second element is a function that allows you to change/set the state to another value
 
-    you're basically saying:
-        use the state that is initialized to this value and get the set value off of it and the function
-        that lets me manage this specific state
+  you're basically saying:
+    use the state that is initialized to this value and get the set value off of it and the function
+    that lets me manage this specific state
 
-        const [age, setAge] = useState(23);
+    const [age, setAge] = useState(23);
 
-        it's saying use the state of age and change it accordingly
-        change the state of the age variables
+    it's saying use the state of age and change it accordingly
+    change the state of the age variables
 
-        I'm gonna create some variable 'age', and I want the initial state of the variable 'age' to be 23
-        you (the program) will know when I want to change the state of the varible 'age' because I'll call
-        the function setAge
+    I'm gonna create some variable 'age', and I want the initial state of the variable 'age' to be 23
+    you (the program) will know when I want to change the state of the varible 'age' because I'll call
+    the function setAge
 
-        use the state of the variable named 'age' and do something with it
+    use the state of the variable named 'age' and do something with it
 
 60. useEffect(() => {}, []);
 
-    basically says, only run the function in the first parameter every time something
-    in the array in the second parameter changes
+  basically says, only run the function in the first parameter every time something
+  in the array in the second parameter changes
 
-    basically creates a side-effect (changes something outside the function)
+  basically creates a side-effect (changes something outside the function)
 
-    array is known as dependency array
+  array is known as dependency array
 
-    if you call return, this will run when the component useEffect is in unmounts
+  if you call return, this will run when the component useEffect is in unmounts
