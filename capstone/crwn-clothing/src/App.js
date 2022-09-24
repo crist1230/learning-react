@@ -11,7 +11,7 @@ const App = () => {
     <Routes> {/* a wrapper that contains all the routes that our website will point to */}
       <Route path='/' element={<Navigation />}> 
         <Route index element={<Home />} /> {/* index says when the route matches the parent route render this element too*/}
-        <Route path='shop' element={<Shop />} />
+        <Route path='shop/*' element={<Shop />} />
         <Route path='auth' element={<Authentication />} />
         <Route path='checkout' element={<Checkout />} />
       </Route>
