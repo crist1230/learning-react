@@ -34,7 +34,7 @@ const SignInForm = () => {
         event.preventDefault();
 
         try {
-            const { user } = await signInAuthUserWithEmailAndPassword(email, password); // want to take the user and store it in the context
+            await signInAuthUserWithEmailAndPassword(email, password); // want to take the user and store it in the context
             resetFormFields();
         } catch (error) {
             switch (error.code) {
