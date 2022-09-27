@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from 'react';
 
 import { onAuthStateChangedListener, createUserDocumentFromAuth } from '../utils/firebase/firebase.utils';
 
@@ -27,7 +27,7 @@ export const UserProvider = ({ children }) => {
     });
 
     return unsubscribe; // when the component unmounts, this runs and stops listening
-  }, [])
+  }, []);
 
   // the value component is what allows every child component to access the state
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
