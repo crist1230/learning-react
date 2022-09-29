@@ -126,3 +126,56 @@ PROP DRILLING VS CONTEXTS
     Example with Contexts: https://codesandbox.io/s/contexts-example-unhbek?file=/src/App.js
 
     good explanation: https://www.youtube.com/watch?v=sP7ANcTpJr8
+
+/////////////////////////////////////////////////////////////////////////////////////////
+REDUCERS
+  - Lecture 145
+    - reducers are functions that return a new object you want to store
+    - whenever you call the dispatch function, you pass an action object (with type & payload)
+    - when you call useReducer, it will always return the currentState and a dispatch function
+    - the dispatch function is what actually runs the reducer with the certain set parameters
+  - Lecture 146
+    - only store readable values (no functions)
+
+  EXAMPLE
+    /* Think of this as the currentState, you only want the currentUser to change,
+    * but you still want the other properties (like firstName & lastName), and
+    * remember that reducers return NEW objects, so if you want to keep the same
+    * values you have to pass/spread that into the new object */
+    const currentState = {
+      currentUser: googleAuthObj,
+      firstName: 'Debby',
+      lastName: 'Mocan'
+    }
+    
+    // the reducer gives you the parameters
+    const userReducer = (currentState, action) = {
+      const { typeOfAction, payload } = action; // payload === the new value (ie: change the currentUser to this...)
+
+      switch(type) {
+        case SET_CURRENT_USER:
+          return {
+            ...currentState, 
+            currentUser: payload
+          }
+        default
+          throw new Error('Error');
+      }
+    }
+
+    // when the application is initialized, what the values will be set to
+    const initialState = {
+      currentState: null,
+      firstName: '',
+      lastName: ''
+    }
+
+    // state === the current value being stored in the reducer (not necessarily the initialState)
+    const [state, dispatch] = useReducer(userReducer, initialState);
+
+    const { currentUser, firstName, lastName } = state;
+
+    const setCurrentUser = (user) => {
+      certainAction = { type: SET_CURRENT_USER, payload: user };
+      dispatch(certainAction);
+    }
