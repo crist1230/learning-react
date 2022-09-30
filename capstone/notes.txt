@@ -51,7 +51,7 @@ Hooks
 what is "export default"?
   basically, if we have a file that has got one thing to export, then we can use a shorthand
   when we are importing the file (look at the link for a side by side comparison of when
-  export defaut vs export is used)
+  export default vs export is used)
   https://stackoverflow.com/questions/21117160/what-is-export-default-in-javascript //look at answer 2
 
 when do you use async await?
@@ -110,7 +110,7 @@ CONTEXTS
   - basically a database
 
   - so the thing with the provider, you could be providing multiple contexts
-    to the app element (which means ur passing down the state and setterstate),
+    to the app element (which means ur passing down the state and setterState),
     but a certain js file doesn't know which one you want to use, so, in that file,
     you have to call useContext (so it knows it's looking for something provided
     to the file) and then in () you put the context you want to access
@@ -146,7 +146,7 @@ REDUCERS
       currentUser: googleAuthObj,
       firstName: 'Debby',
       lastName: 'Mocan'
-    }
+    };
     
     // the reducer gives you the parameters
     const userReducer = (currentState, action) = {
@@ -161,14 +161,14 @@ REDUCERS
         default
           throw new Error('Error');
       }
-    }
+    };
 
     // when the application is initialized, what the values will be set to
     const initialState = {
       currentState: null,
       firstName: '',
       lastName: ''
-    }
+    };
 
     // state === the current value being stored in the reducer (not necessarily the initialState)
     const [state, dispatch] = useReducer(userReducer, initialState);
@@ -178,4 +178,17 @@ REDUCERS
     const setCurrentUser = (user) => {
       certainAction = { type: SET_CURRENT_USER, payload: user };
       dispatch(certainAction);
-    }
+    };
+
+/////////////////////////////////////////////////////////////////////////////////////////
+REDUX
+  Lecture 149
+  - with context, you can choose individually what components have access, with redux,
+    the entire application gets access
+  
+  Lecture 151
+  - all the reducers go into one "root-reducer" and whenever an action is dispatched,
+    it will go through all the reducers in the root reducer
+    > this is why the default states of the reducers have been changed from an error 
+      to the state that was passed in so that if an action that gets dispatched doesn't
+      apply to a certain reducer, it will just return the passed in state
