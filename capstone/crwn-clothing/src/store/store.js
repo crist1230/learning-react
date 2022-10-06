@@ -8,4 +8,5 @@ const middleWares = [logger];
 
 const composedEnhancers = compose(applyMiddleware(...middleWares));
 
+// every time the state changes, it will hit this line of code and the change will be logged
 export const store = createStore(rootReducer, undefined, composedEnhancers);

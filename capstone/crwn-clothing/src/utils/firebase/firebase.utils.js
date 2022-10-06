@@ -68,19 +68,15 @@ export const getCategoriesAndDocuments = async () => {
     const q = query(collectionRef);
 
     const querySnapshot = await getDocs(q);
-    const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-        const { title, items } = docSnapshot.data();
-        acc[title.toLowerCase()] = items;
-        return acc;
-    }, {});
 
-    return categoryMap;
-
+    /* this will now return back a "categories" array with 5 items in it (each with a title and items)
+     * [{...}, {...}, {...}, ...] */
+    return querySnapshot.docs.map(docSnapshot => docSnapshot.data());
 };
 
 /* google sign-in will return some user authentication object and that's what gets passed here
-   it's a function that takes that data we get from the authentication service, and will 
-   store that in our firebase db */
+    it's a function that takes that data we get from the authentication service, and will 
+    store that in our firebase db */
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
     if (!userAuth) return;
 
