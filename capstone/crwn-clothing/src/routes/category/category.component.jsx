@@ -9,10 +9,10 @@ import ProductCard from '../../components/product-card/product-card.component';
 import './category.styles.scss';
 
 const Category = () => {
-  const { category } = useParams(); // takes categroy name from URL
+  const { category } = useParams(); // takes category name from URL
   const categoriesMap = useSelector(selectCategoriesMap);
   const [products, setProducts] = useState(categoriesMap[category]);
-  console.log('render/rerendering categroy component.');
+  console.log('render/rerendering category component.');
 
   useEffect(() => {
     console.log('effect fired calling setProducts.');
