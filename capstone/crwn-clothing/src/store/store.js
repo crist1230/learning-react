@@ -4,9 +4,24 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import logger from 'redux-logger';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 
 import { rootReducer } from './root-reducer';
+import { rootSaga } from './root-saga';
+
+const sagaMiddleware = createSagaMiddleware();
+
+// middleware is what the dispatched action will hit before going to the reducers
+const middleWares = [
+  process.env.NODE_ENV !== 'production' && logger,
+  sagaMiddleware
+].filter(Boolean);
+
+const composedEnhancer = 
+  (process.env.NODE_ENV !== 'production' &&
+    window &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
 
 const persistConfig = {
   key: 'root', // where you want the persisting to reach (so here the root of the app)
@@ -16,19 +31,9 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// middleware is what the dispatched action will hit before going to the reducers
-const middleWares = [
-  process.env.NODE_ENV !== 'production' && logger,
-  thunk
-].filter(Boolean);
-
-const composedEnhancer = 
-  (process.env.NODE_ENV !== 'production' &&
-    window &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
-
 const composedEnhancers = composedEnhancer(applyMiddleware(...middleWares));
+
+sagaMiddleware.run(rootSaga);
 
 // every time the state changes, it will hit this line of code and the change will be logged
 export const store = createStore(persistedReducer, undefined, composedEnhancers);

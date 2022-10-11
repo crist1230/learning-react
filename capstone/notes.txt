@@ -192,3 +192,13 @@ REDUX
     > this is why the default states of the reducers have been changed from an error 
       to the state that was passed in so that if an action that gets dispatched doesn't
       apply to a certain reducer, it will just return the passed in state
+
+/////////////////////////////////////////////////////////////////////////////////////////
+REDUX-SAGA
+  Lecture 172
+  - saga is a middleware, but it gets called after the action is dispatched and goes
+    through the reducers
+  - sagas replace thunks cuz you mainly want one async side-effect library
+
+  Lecture 173
+  - look at this for more info on generator functions
