@@ -13,11 +13,11 @@ const sagaMiddleware = createSagaMiddleware();
 
 // middleware is what the dispatched action will hit before going to the reducers
 const middleWares = [
-  process.env.NODE_ENV !== 'production' && logger,
-  sagaMiddleware
+  process.env.NODE_ENV === 'development' && logger,
+  sagaMiddleware,
 ].filter(Boolean);
 
-const composedEnhancer = 
+const composeEnhancer = 
   (process.env.NODE_ENV !== 'production' &&
     window &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
@@ -31,11 +31,15 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const composedEnhancers = composedEnhancer(applyMiddleware(...middleWares));
-
-sagaMiddleware.run(rootSaga);
+const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares));
 
 // every time the state changes, it will hit this line of code and the change will be logged
-export const store = createStore(persistedReducer, undefined, composedEnhancers);
+export const store = createStore(
+  persistedReducer,
+  undefined,
+  composedEnhancers
+);
+
+sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);
