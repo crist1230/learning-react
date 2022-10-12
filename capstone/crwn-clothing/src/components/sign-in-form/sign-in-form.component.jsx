@@ -1,9 +1,7 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import {
-    signInWithGooglePopup,
-    signInAuthUserWithEmailAndPassword
-} from '../../utils/firebase/firebase.utils';
+import { googleSignInStart, emailSignInStart } from '../../store/user/user.action';
 
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
@@ -17,13 +15,14 @@ const defaultFormFields = {
 
 const SignInForm = () => {
 
+    const dispatch = useDispatch();
+
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
 
     // has to be async whenever you're making a call to a db
     const signInWithGoogle = async () => {
-        // get back user credentials and access token and unique id tied to the account 
-        await signInWithGooglePopup();
+        dispatch(googleSignInStart());
     };
 
     const resetFormFields = () => {
@@ -34,10 +33,10 @@ const SignInForm = () => {
         event.preventDefault();
 
         try {
-          await signInAuthUserWithEmailAndPassword(email, password); // want to take the user and store it in the context
-          resetFormFields();
+            dispatch(emailSignInStart(email, password));
+            resetFormFields();
         } catch (error) {
-          console.log('user sign in failed', error);
+            console.log('user sign in failed', error);
         }
     };
 

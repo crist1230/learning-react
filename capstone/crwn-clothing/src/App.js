@@ -3,11 +3,8 @@ import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-// utils
-import { onAuthStateChangedListener, createUserDocumentFromAuth } from './utils/firebase/firebase.utils';
-
 // internal redux
-import { setCurrentUser } from './store/user/user.action';
+import { checkUserSession } from './store/user/user.action';
 
 // routes
 import Home from './routes/home/home.component';
@@ -21,17 +18,8 @@ const App = () => {
 
   // useEffect runs once, when the component mounts
   useEffect(() => {
-    // when this component unmounts, you want to tell the listener to stop listening (see return)
-    // unsubscribe is a function that will tell the listener to stop listening
-    // look at comments on lecture 109 to understand where user comes from
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      dispatch(setCurrentUser(user)); 
-    });
-
-    return unsubscribe; // when the component unmounts, this runs and stops listening
+    dispatch(checkUserSession());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
