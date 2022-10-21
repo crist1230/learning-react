@@ -50,7 +50,7 @@ the whole function gets run from top to bottom
     change the state of the age variables
 
     I'm gonna create some variable 'age', and I want the initial state of the variable 'age' to be 23
-    you (the program) will know when I want to change the state of the varible 'age' because I'll call
+    you (the program) will know when I want to change the state of the variable 'age' because I'll call
     the function setAge
 
     use the state of the variable named 'age' and do something with it
@@ -65,3 +65,58 @@ the whole function gets run from top to bottom
   array is known as dependency array
 
   if you call return, this will run when the component useEffect is in unmounts
+
+/////////////////////////////////////////////////////////////////////////////////////////
+TYPESCRIPT
+  - how to write function in typescript:
+    > const func: (a: string, b: number, c: boolean) => void = (a, b, c) => {};
+
+  - difference between types and interfaces:
+    > NOTE: they're mostly the same, they just have a few minor differences
+
+    interfaces - you can extend them
+      ex:
+        interface ISearchBoxProps extends IChangeHandlerProps { // all interfaces start with an "I"
+          className: string;
+          placeholder?: string; // the "?" makes it optional
+        }
+
+        interface IChangeHandlerProps {
+          onChangeHandler: (a: string) => void;
+        }
+
+        const SearchBox = ({ className, placeholder, onChangeHandler }: ISearchBoxProps) => (
+          <input />
+        );
+
+        export default SearchBox;
+
+    types - you can create unions
+      ex:
+        type CanadianAddress = {
+          street: string;
+          province: string;
+        }
+
+        type USAddress = {
+          street: string;
+          state: string;
+        }
+
+        type NorthAmericanAddress = CanadianAddress | USAddress;
+
+        const Address: NorthAmericanAddress = {
+          street: 'some street',
+          state: 'WA',
+        };
+
+        or it could also be:
+
+        const Address: NorthAmericanAddress = {
+          street: 'some street',
+          province: 'QB',
+        };
+
+    > when do you use them?
+      . use types when you're writing more function-oriented programming, and use interfaces
+        when you're writing more object-oriented programming
