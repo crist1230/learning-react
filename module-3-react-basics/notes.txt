@@ -120,3 +120,35 @@ TYPESCRIPT
     > when do you use them?
       . use types when you're writing more function-oriented programming, and use interfaces
         when you're writing more object-oriented programming
+    
+  - ChangeEventHandler<HTMLInputElement>
+    > there are many different types of on<insertEvent>Event functions,
+      this one just happens to be an onChangeEvent type of function.
+
+    > because we're calling this a function to run on an onChange event,
+      the function type will be a ChangeEventHandler
+      . additionally, because we're calling this onChange event on an input
+        element, the type of parameter will be an HTMLInputElement
+
+    > CODE:
+      type SearchBoxProps = {
+        className: string;
+        placeholder?: string;
+        onChangeHandler: ChangeEventHandler<HTMLInputElement>;
+      };
+
+      const SearchBox = ({className, placeholder, onChangeHandler}: SearchBoxProps) => (
+        <input
+          className={`search-box ${className}`}
+          type='search'
+          placeholder={placeholder}
+          onChange={onChangeHandler}
+        />
+      );
+
+    > NOTE: in the background when you call ChangeEventHandler<HTMLInputElement>
+      it is actually calling "(event: ChangeEvent<HTMLInputElement>) => void;"
+      so by default ChangeEventHandler is a function that will return nothing (void),
+      if you want to have a ChangeEvent that returns something, you could define it
+      like this: "(event: ChangeEvent<HTMLInputElement>) => string;" or whatever you
+      want it to return.
