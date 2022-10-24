@@ -67,7 +67,7 @@ the whole function gets run from top to bottom
   if you call return, this will run when the component useEffect is in unmounts
 
 /////////////////////////////////////////////////////////////////////////////////////////
-TYPESCRIPT
+INTRO TO TYPESCRIPT
   - how to write function in typescript:
     > const func: (a: string, b: number, c: boolean) => void = (a, b, c) => {};
 
