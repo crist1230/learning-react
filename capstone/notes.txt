@@ -40,7 +40,7 @@
 
         only the things nested inside the provider will be able to access the context
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
 Hooks
 
   hooks enable the use of state in functional components. Before you need to use a class
@@ -202,3 +202,16 @@ REDUX-SAGA
 
   Lecture 173
   - look at this for more info on generator functions
+
+/////////////////////////////////////////////////////////////////////////////////////////
+ADVANCED TYPESCRIPT
+  - Generics
+    > https://www.youtube.com/watch?v=nViEqpgwxHE
+    > https://www.youtube.com/watch?v=nePDL5lQSE4
+
+    > CODE:
+      function identity<TypeOfItem>(arg: TypeOfItem): TypeOfItem {
+        return arg;
+      }
+
+      (let output = identity<string>("myString");) == (let output = identity("myString");)
