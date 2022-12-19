@@ -206,6 +206,7 @@ REDUX-SAGA
 /////////////////////////////////////////////////////////////////////////////////////////
 ADVANCED TYPESCRIPT
   - Generics
+    > https://www.youtube.com/watch?v=hHcXWbVynWE
     > https://www.youtube.com/watch?v=nViEqpgwxHE
     > https://www.youtube.com/watch?v=nePDL5lQSE4
 
