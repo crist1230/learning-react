@@ -216,3 +216,7 @@ ADVANCED TYPESCRIPT
       }
 
       (let output = identity<string>("myString");) == (let output = identity("myString");)
+  
+  - Function Overloading
+    > https://www.tutorialsteacher.com/typescript/function-overloading
+    > https://dmitripavlutin.com/typescript-function-overloading/
