@@ -220,3 +220,25 @@ ADVANCED TYPESCRIPT
   - Function Overloading
     > https://www.tutorialsteacher.com/typescript/function-overloading
     > https://dmitripavlutin.com/typescript-function-overloading/
+
+  - withMatcher
+
+    > CODE:
+
+      /* When type 'Matchable' is called, it should also include a generic like this: 'Matchable<ActionCreator>'
+       ** This generic should be a type that extends a function that returns AnyAction
+       *** This in mind, the Matchable type will end up being the ActionCreator type that was passed in the generic &
+       **** will have a type property and a match property. The type property will be the type property you get as a return value
+       ***** from the ActionCreator function. The match property is a method that receives a parameter 'action' of type AnyAction 
+       ****** and returns a boolean decided by if the action parameter is equal to the return type of the ActionCreator */
+      type Matchable<ActionCreator extends () => AnyAction> = ActionCreator & {
+        type: ReturnType<ActionCreator>['type'];
+        match(action: AnyAction): action is ReturnType<ActionCreator>;
+      }  
+
+      /* withMatcher receives an ActionCreator as a parameter, the type ActionCreator has not been defined before so we define it now:
+       ** <ActionCreator extends () => AnyAction & { type: string }>
+       *** ActionCreator extends a function that returns AnyAction with a 'type' key and value of type string
+       * withMatcher will return a Matchable type with and ActionCreator as a parameter type */
+      export function withMatcher<ActionCreator extends () => AnyAction & { type: string }>(actionCreator: ActionCreator): Matchable<ActionCreator>;
+
